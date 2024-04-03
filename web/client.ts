@@ -1123,8 +1123,11 @@ export class Client {
     );
 
     const accumulatedCSS: string[] = [];
+    // Declare the layer order
+    accumulatedCSS.push(`@layer ${sortOrder.join(", ")};`);
     for (const s of spaceStyles) {
-      accumulatedCSS.push(s.style);
+      // Add the style to the corresponding layer
+      accumulatedCSS.push(`@layer ${s.origin} {\n${s.style}\n}`);
     }
     const customStylesContent = accumulatedCSS.join("\n\n");
     this.ui.viewDispatch({

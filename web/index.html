@@ -56,6 +56,34 @@
         clientEncryption: false,
       };
     }
+
+    // HACK: This puts the CodeMirror styles in a layer so that they can be overridden by the other layers
+    (async () => {
+      async function queryElement(selector, timeout = 100) {
+        return new Promise((resolve) => {
+          const interval = setInterval(() => {
+            const element = document.querySelector(selector);
+            if (element) {
+              clearInterval(interval);
+              resolve(element);
+            }
+          }, timeout);
+        });
+      }
+      const cmStylesElement = await queryElement("style:first-child");
+      console.log("got cmStylesElement", cmStylesElement);
+      function updateStyles() {
+        if (!cmStylesElement.innerHTML.includes("@layer cm")) {
+          cmStylesElement.innerHTML =
+            `@layer cm {\n${cmStylesElement.innerHTML}\n}`;
+        }
+      }
+      updateStyles();
+      const observer = new MutationObserver(() => {
+        updateStyles();
+      });
+      observer.observe(cmStylesElement, { childList: true });
+    })();
   </script>
   <link rel="stylesheet" href="/.client/main.css" />
   <style id="custom-styles"></style>

@@ -22,9 +22,9 @@ html[data-theme="dark"] {
 
 html {
   /* Uncomment the next line to set the editor font to Courier */
-  /* --editor-font: "Courier" !important; */
+  /* --editor-font: "Courier"; */
   /* Uncomment the next line to set the editor width to 1400px */
-  /* --editor-width: 1400px !important; */
+  /* --editor-width: 1400px; */
 }
 
 /* Choose another header color */
@@ -33,7 +33,7 @@ html {
 }
 /* Or modify the element directly */
 #sb-top {
-  /*background-color: #eee !important;*/
+  /*background-color: #eee;*/
 }
 
 /* You can even change the appearance of buttons */

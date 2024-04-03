@@ -1,5 +1,5 @@
 .cm-focused {
-  outline: none !important;
+  outline: none;
 }
 
 #sb-main .cm-editor {
@@ -197,7 +197,7 @@
   }
 
   .cm-task-checked {
-    text-decoration: line-through !important;
+    text-decoration: line-through;
   }
 
   .cm-tooltip-autocomplete {
@@ -438,7 +438,7 @@
   .sb-markdown-top-widget h1,
   .sb-markdown-bottom-widget h1 {
     margin: 0 0 5px 0;
-    padding: 10px !important;
+    padding: 10px;
     background-color: var(--editor-widget-background-color);
     font-size: 1.2em;
   }
@@ -577,7 +577,7 @@
   }
 
   .sb-admonition {
-    border-left-width: 4px !important;
+    border-left-width: 4px;
     border-left-style: solid;
   }
 
